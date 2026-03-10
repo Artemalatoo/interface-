@@ -5,13 +5,9 @@ A simple Flutter app demonstrating user registration, login, and navigation. Use
 Features
 
 Sign Up with email and password
-
 Log In with registered credentials
-
 Simple Home Page showing logged-in user
-
 Navigation between Login, Sign Up, and Home pages
-
 Error handling for invalid login or empty fields
 
 Project Structure
@@ -38,8 +34,3 @@ flutter pub get
 Run the app
 
 flutter run
-Notes
-
-This app does not persist users — closing the app clears all registered accounts.
-
-Mainly intended for learning Flutter navigation and state management.
