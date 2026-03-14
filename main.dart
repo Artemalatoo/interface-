@@ -14,18 +14,13 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-// ================= Login Page =================
 class LoginPage extends StatefulWidget {
   @override
   _LoginPageState createState() => _LoginPageState();
 }
-
 class _LoginPageState extends State<LoginPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
-
-  // This will store registered users locally
   Map<String, String> users = {};
 
   void login() {
@@ -33,7 +28,6 @@ class _LoginPageState extends State<LoginPage> {
     final password = _passwordController.text;
 
     if (users.containsKey(email) && users[email] == password) {
-      // Navigate to HomePage after successful login
       Navigator.push(
         context,
         MaterialPageRoute(
@@ -41,7 +35,6 @@ class _LoginPageState extends State<LoginPage> {
         ),
       );
     } else {
-      // Login failed
       showDialog(
         context: context,
         builder: (_) => AlertDialog(
@@ -51,7 +44,6 @@ class _LoginPageState extends State<LoginPage> {
       );
     }
   }
-
   void goToSignUp() {
     Navigator.push(
       context,
@@ -100,8 +92,6 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-// ================= Sign Up Page =================
 class SignUpPage extends StatefulWidget {
   final Function(String, String) addUser;
 
@@ -110,7 +100,6 @@ class SignUpPage extends StatefulWidget {
   @override
   _SignUpPageState createState() => _SignUpPageState();
 }
-
 class _SignUpPageState extends State<SignUpPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
@@ -140,8 +129,7 @@ class _SignUpPageState extends State<SignUpPage> {
         ),
       );
     }
-  }
-
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -171,8 +159,6 @@ class _SignUpPageState extends State<SignUpPage> {
     );
   }
 }
-
-// ================= Home Page =================
 class HomePage extends StatelessWidget {
   final String email;
 
@@ -198,7 +184,6 @@ class HomePage extends StatelessWidget {
             SizedBox(height: 40),
             ElevatedButton(
               onPressed: () {
-                // Go back to login page
                 Navigator.popUntil(context, (route) => route.isFirst);
               },
               child: Text("Log Out"),
